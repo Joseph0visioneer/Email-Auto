@@ -1,0 +1,15 @@
+Flask==3.0.0
+Flask-SQLAlchemy==3.1.1
+Flask-CORS==4.0.0
+Flask-Migrate==4.0.5
+python-dotenv==1.0.0
+mysql-connector-python==8.2.0
+firebase-admin==6.4.0
+google-api-python-client==2.110.0
+google-auth==2.24.0
+pandas==2.1.3
+requests==2.31.0
+# smtplib은 Python 내장 라이브러리
+pytest==7.4.3
+pytest-flask==1.3.0
+

@@ -1,0 +1,264 @@
+/* Layout Styles */
+.layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-open {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-toggle:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Navigation Styles */
+.sidebar-nav {
+    flex: 1;
+    padding: 1rem 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-left-color: rgba(255,255,255,0.5);
+}
+
+.nav-item.active {
+    background-color: rgba(255,255,255,0.2);
+    border-left-color: white;
+}
+
+.nav-icon {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.nav-text {
+    font-weight: 500;
+}
+
+/* User Section */
+.sidebar-user {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 0.75rem;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.user-email {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease;
+}
+
+.header {
+    background: white;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.mobile-menu-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* Overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .sidebar {
+        position: static;
+        transform: translateX(0);
+        height: auto;
+    }
+    
+    .mobile-menu-btn {
+        display: none !important;
+    }
+    
+    .sidebar-overlay {
+        display: none !important;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .sidebar-overlay {
+        display: block;
+    }
+    
+    .header {
+        padding: 1rem;
+    }
+    
+    .content {
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        font-size: 1.25rem;
+    }
+    
+    .user-badge {
+        display: none;
+    }
+}
+
